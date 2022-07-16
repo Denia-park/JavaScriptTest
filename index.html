@@ -9,18 +9,62 @@
 <body>
 <div class="container">
     <div>
-    이름: <input type="text" name="" id="name">
+        이름: <input type="text" name="" id="name">
     </div>
     <div>
-
-    지역 : <select name="" id="city">
-        <option value="02">서울</option>
+        지역 : <select name="" id="city" onchange="changeCity();">
+        <option value="02" selected>서울</option>
         <option value="064">제주</option>
     </select>
     </div>
+    <div>
+        동네 :
+        <select id="region_02">
+            <option value="">강남</option>
+            <option value="">서초</option>
+        </select>
+        <select id="region_064" style="display: none">
+            <option value="">제주시</option>
+            <option value="">서귀포시</option>
+        </select>
+    </div>
+    <div>
+        Test: <input type="text" name="" id="test">
+    </div>
+    <button type="button" id="" onclick="regist();">등록</button>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<script !src=""></script>
+<script !src="">
+    function regist(){
+        // alert(document.getElementById("name").value);
+        // alert(document.getElementById("city").value);
+
+        //JQuery 는 모두 $ 표시로 시작을 한다.
+        //#은 ID를 의미한다.
+        //val() 메서드
+        alert($("#name").val());
+        alert($("#city").val());
+    }
+
+    function changeCity() {
+        // let city = document.getElementById("city").value;
+        // document.getElementById("region_02" ).style.display = "none";
+        // document.getElementById("region_064").style.display = "none";
+        // document.getElementById("region_" + city).style.display = "";
+
+        //JQuery
+        //#은 ID를 의미한다.
+        let city = $("#city").val();
+        $("#region_02").hide();
+        $("#region_064").hide();
+        $("#region_"+city).show();
+    }
+
+    let x = 2;
+    x = x + 3;
+    document.getElementById("test").value = x;
+</script>
 </body>
 </html>
