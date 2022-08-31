@@ -9,7 +9,7 @@
 // a를 선언하지 않고 a = 6 을 할당하는 이런 짓들을 경고 하는 것으로 방지해줌
 // 그리고 JS 엔진이 조금더 효율적으로 일하기 때문에 더 빠르게 JS를 분석이 가능함, 실행속도 UP 가능
 
-//2. Variable
+//2. Variable , rw(read/write)
 // let (added in ES6)
 let name = "ellie";
 console.log(name);
@@ -24,17 +24,24 @@ age = 4;
 console.log(age);
 var age;
 
-//3. Constants
-//favor immutable data type always for a few reasons:
-// - security
-// - thread safety
-// - reduce human mistake
+//3. Constant r(read only)
+//use const whenever possible
+//only use let if variable needs to change
 const daysInWeek = 7;
 const maxNumber = 5;
 
+//Note!
+//Immutable data types : primitive , frozen objects (i.e. object.freeze())
+//Mutable data types : all objects by default are mutable in JS
+//favor immutable data type always for a few reasons
+// - security
+// - thread safety
+// - reduce human mistake
+
+
 //4. variable types
-//primitive
-//object
+//primitive - 값 자체가 저장됨
+//object - reference 가 저장되어있음 ( 주소 개념 )
 //function , first-class function : 함수형 프로그래밍이 가능하다.
 
 const count = 17; // integer
@@ -64,7 +71,7 @@ const helloBob = `hi ${brendan}!`; //template literals (string)
 console.log(`value : ${helloBob}, type : ${typeof helloBob}`);
 
 //boolean
-// false :0, null, undefined, NaN, ''
+// false :0, null, undefined, NaN, ""(empty string)
 // true :any other value
 const canRead = true;
 const test = 3 < 1;//false
