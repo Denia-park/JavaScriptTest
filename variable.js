@@ -99,7 +99,10 @@ console.log(`value : ${symbol1.description}, type : ${typeof symbol1}`); // symb
 // object, real-life object , data structure
 const ellie = {name: "ellie", age: 20}; // ellie 자체는 const로 수정이 불가능하게 막혀있지만 name 과 age는 변경이 가능함
 ellie = 3; // const 라서 변경 불가
-ellie.age = 21; // 이건 변경 가능
+ellie.age = 22; // 이건 변경 가능
+ellie.name = "ellie2"; // 가능
+ellie["age"] = 23; // 가능
+ellie["name"] = "ellie3"; // 가능
 
 // 5. Dynamic typing : dynamically typed language
 let text = "hello";
