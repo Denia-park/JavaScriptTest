@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">숫자만 입력 가능한 필드</label>
+        <input type="text" name="" id="" value="" oninput="
+        onlyNumber()">
+    </div>
+
+    <script>
+        // 참고 유튜브 : https://youtu.be/31RM_tDUJTs
+        // [input 이벤트를 제대로 이해하면 코드 세줄로 숫자만 입력 가능한 필드, 한글만 입력 가능한 필드를 구현할 수 있다]
+
+
+        //keydown => keypress => keyup
+        //input 이벤트
+        //keydown => keypress => input => keyup
+        //input 이벤트 : value 속성에 값이 들어가요. 그런데 화면에는 안보여요.
+        //keyup 이벤트 : value 속성에 값이 들어가 있어요. 이 시점에 비로서 화면에 보이게 되요.
+        function onlyNumber() {
+            console.log(event.type, event.target.value);
+            const regExp = /\D/g; // 숫자가 아닌 모든 문자를 찾아라
+            event.target.value = event.target.value.replace(regExp, '');
+        }
+
+        function onlyLowerCase() {
+            console.log(event.type, event.target.value);
+            const regExp = /[^a-z]/g; // 소문자가 아닌 모든 문자를 찾아라
+            event.target.value = event.target.value.replace(regExp, '');
+        }
+
+        function onlyUpperCase() {
+            console.log(event.type, event.target.value);
+            const regExp = /[^A-Z]/g; // 소문자가 아닌 모든 문자를 찾아라
+            event.target.value = event.target.value.replace(regExp, '');
+        }
+
+        function onlyKorean() {
+            console.log(event.type, event.target.value);
+            const regExp = /[^ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g; // 소문자가 아닌 모든 문자를 찾아라
+            event.target.value = event.target.value.replace(regExp, '');
+        }
+    </script>
+</body>
+</html>
